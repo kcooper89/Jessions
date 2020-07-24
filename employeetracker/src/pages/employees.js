@@ -1,9 +1,141 @@
 import React from "react";
-import Hero from "../components/Hero";
-import Container from "../components/Container";
-import Row from "../components/Row";
-import Col from "../components/Col";
+import API from "../utils/API";
 
+
+class Employees extends React.Component {
+  state = {
+    isLoading: true,
+    allEmployees: [],
+    employees: []
+  }
+
+  componentDidMount() {
+    API.search()
+      .then(employees => {
+        console.log(employees);
+        this.setState({
+          isLoading: false,
+          allEmployees: employees.data.results,
+          employees: employees.data.results
+        })
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
+  filterEmployees = (event) => {
+    const allEmployees = this.state.allEmployees;
+    const gender = event.target.value; // value of the dropdown
+    console.log(gender);
+
+    if (gender === "") {
+      this.setState({ employees: allEmployees });
+    } else {
+      this.setState({
+        employees: allEmployees.filter(function(employee) {
+          if (employee.gender == gender) {
+            return true
+          }
+
+          return false
+        })
+      })
+    }
+  }
+
+  sortEmployees = (event) => {
+    const allEmployees = this.state.allEmployees;
+    const sortValue = event.target.value;
+
+    if (sortValue === "") {
+      this.setState({ employees: allEmployees });
+    } else if (sortValue === 'oldToYoung') {
+      this.setState({
+        employees: allEmployees.sort(function(employee1, employee2) {
+          if (employee1.dob.date < employee2.dob.date) {
+            return -1;
+          }
+          if (employee1.dob.date > employee2.dob.date) {
+            return 1;
+          }
+
+          return 0;
+        })
+      })
+    } else if (sortValue === 'youngToOld') {
+      this.setState({
+        employees: allEmployees.sort(function(employee1, employee2) {
+          if (employee1.dob.date < employee2.dob.date) {
+            return 1;
+          }
+          if (employee1.dob.date > employee2.dob.date) {
+            return -1;
+          }
+
+          return 0;
+        })
+      })
+    }
+  }
+
+  render() {
+    const { isLoading, employees } = this.state;
+
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+
+    return (
+      <div>
+        <div>
+          <label>Filter by</label>
+          <select onChange={this.filterEmployees}>
+            <option value=""></option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Sort By</label>
+          <select onChange={this.sortEmployees}>
+            <option value=""></option>
+            <option value="youngToOld">Youngest to Oldest</option>
+            <option value="oldToYoung">Oldest to Youngest</option>
+          </select>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email Address</th>
+              <th>Phone</th>
+              <th>Gender</th>
+              <th>DOB</th>
+            </tr>
+          </thead>
+          <tbody>
+            {employees.map(employee => (
+              <tr key={employee.id.value}>
+                <td>{employee.name.first + ' ' + employee.name.last}</td>
+                <td>{employee.email}</td>
+                <td>{employee.phone}</td>
+                <td>{employee.gender}</td>
+                <td>{employee.dob.date}</td>
+                {/* Do gender + DOB*/}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+}
+
+
+/*
 function About() {
   return (
     <div>
@@ -29,5 +161,6 @@ function About() {
     </div>
   );
 }
+*/
 
-export default About;
+export default Employees;
