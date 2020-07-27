@@ -88,46 +88,54 @@ class Employees extends React.Component {
 
     return (
       <div>
-        <div>
-          <label>Filter by</label>
-          <select onChange={this.filterEmployees}>
-            <option value="">Please Select:</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
+        <img id = "office-img" src= "https://s17026.pcdn.co/wp-content/uploads/sites/9/2017/06/AdobeStock_97559781.jpeg"></img>
+
+        <div class="d-flex justify-content-end">
+          <div>
+            <label>Filter by</label>
+            <select onChange={this.filterEmployees}>
+              <option value="">Please Select:</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
         </div>
 
-        <div>
-          <label>Sort By</label>
-          <select onChange={this.sortEmployees}>
-            <option value="">Please Select</option>
-            <option value="youngToOld">Youngest to Oldest</option>
-            <option value="oldToYoung">Oldest to Youngest</option>
-          </select>
+        <div class="d-flex justify-content-end">
+          <div>
+            <label>Sort By</label>
+            <select onChange={this.sortEmployees}>
+              <option value="">Please Select</option>
+              <option value="youngToOld">Youngest to Oldest</option>
+              <option value="oldToYoung">Oldest to Youngest</option>
+            </select>
+          </div>
         </div>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email Address</th>
-              <th>Phone</th>
-              <th>Gender</th>
-              <th>DOB</th>
-            </tr>
-          </thead>
-          <tbody>
-            {employees.map(employee => (
-              <tr key={employee.id.value}>
-                <td>{employee.name.first + ' ' + employee.name.last}</td>
-                <td>{employee.email}</td>
-                <td>{employee.phone}</td>
-                <td>{employee.gender}</td>
-                <td>{employee.dob.date}</td>
+          <div class= "d-flex justify-content-center">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email Address</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>DOB</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {employees.map(employee => (
+                <tr key={employee.id.value}>
+                  <td>{employee.name.first + ' ' + employee.name.last}</td>
+                  <td>{employee.email}</td>
+                  <td>{employee.phone}</td>
+                  <td>{employee.gender}</td>
+                  <td>{employee.dob.date}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     )
   }

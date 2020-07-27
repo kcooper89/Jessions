@@ -1,11 +1,12 @@
 #navigation-bar {
-  height: 75px;
+  height: 50px;
   background-color: lightgray;
  
 }
 
 #navbar {
   text-align: center; 
-  font-size: 30px;
+  font-size: 35px;
+
 }
 

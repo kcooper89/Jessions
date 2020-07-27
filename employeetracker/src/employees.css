@@ -13,3 +13,9 @@ div[data-reactroot] {
   margin: 0;
   
 }
+
+#office-img {
+  position: relative;
+  height: 700px;
+  width: 1361px;
+}
