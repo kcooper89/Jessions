@@ -1,3 +1,11 @@
-nav.navbar.navbar-default {
-  margin-bottom: 0;
+#navigation-bar {
+  height: 75px;
+  background-color: lightgray;
+ 
 }
+
+#navbar {
+  text-align: center; 
+  font-size: 30px;
+}
+

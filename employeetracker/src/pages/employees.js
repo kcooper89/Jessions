@@ -124,7 +124,6 @@ class Employees extends React.Component {
                 <td>{employee.phone}</td>
                 <td>{employee.gender}</td>
                 <td>{employee.dob.date}</td>
-                {/* Do gender + DOB*/}
               </tr>
             ))}
           </tbody>
