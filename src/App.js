@@ -17,7 +17,7 @@ function App() {
       <div>
         <Navbar />
         <Wrapper>
-          <Route path="/" exact component={Employees} />
+          <Route path="/" component={Employees} />
         </Wrapper>
         <Footer />
       </div>
