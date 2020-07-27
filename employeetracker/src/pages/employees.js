@@ -91,7 +91,7 @@ class Employees extends React.Component {
         <div>
           <label>Filter by</label>
           <select onChange={this.filterEmployees}>
-            <option value=""></option>
+            <option value="">Please Select:</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
@@ -100,7 +100,7 @@ class Employees extends React.Component {
         <div>
           <label>Sort By</label>
           <select onChange={this.sortEmployees}>
-            <option value=""></option>
+            <option value="">Please Select</option>
             <option value="youngToOld">Youngest to Oldest</option>
             <option value="oldToYoung">Oldest to Youngest</option>
           </select>
