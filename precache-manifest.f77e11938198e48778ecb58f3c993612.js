@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "93a2f2e9a435c8f35ca7e847e1c405d1",
+    "revision": "809bc61ff4df25df35dc05e3460cd07d",
     "url": "/Jessions/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Jessions/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "32db61e769bb53afd145",
+    "revision": "70b63831bde99a684001",
     "url": "/Jessions/static/css/main.38b6a2c3.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Jessions/static/js/2.7a27bc3f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "32db61e769bb53afd145",
-    "url": "/Jessions/static/js/main.abca87b6.chunk.js"
+    "revision": "70b63831bde99a684001",
+    "url": "/Jessions/static/js/main.a86cde27.chunk.js"
   },
   {
     "revision": "0fa13cc3f2db587710cb",
